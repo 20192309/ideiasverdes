@@ -1,0 +1,59 @@
+{% extends "base.html" %} 
+{% block title %}ideiasverdes.pt{% endblock %}
+        {% block content %}
+        <div class="titulo">
+            <h1>ideias verdes CRUD Webapplication: Admin panel</h1>
+        </div>
+        <form action="/criarID" method="post">
+            <div class="col-md-4 mb-3" >
+                <label for="validationCustomUsername">Create: Inserir uma nova ideia</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-success" value="Criar Ideia" type="submit" id="criarID">Criar ideia</button>
+                  </div>
+                </div>
+            </div>
+        </form>
+        <form action="/consultideia" method="post">
+            <div class="col-md-4 mb-3" >
+                <label for="validationCustomUsername">Read: Insira o ID da ideia a visualizar</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-success" value="pesquisa" type="submit" id="consultideia">Ver ideia</button>
+                  </div>
+                  <input type="text" name="consultideia" class="form-control" id="procurarid" placeholder="Inserir ID" aria-describedby="inputGroupPrepend" required>
+                </div>
+            </div>
+        </form>
+        <form action="/procurar" method="post">
+            <div class="col-md-4 mb-3" >
+                <label for="validationCustomUsername">Update: insira o ID abaixo para atualizar a ideia</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <button class="btn btn-success" value="procurar ID" type="submit" id="findID">Atualizar ideia</button>
+                    </div>
+                    <input type="text" name="findID" class="form-control" id="findID" placeholder="Inserir ID" aria-describedby="inputGroupPrepend" required>
+                </div>
+            </div>
+        </form>
+        <form action="/deleteID" method="post">
+            <div class="col-md-4 mb-3" >
+                <label for="validationCustomUsername">Delete: indicar o ID da ideia a apagar</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <button class="btn btn-success" value="ID para apagar" type="submit" id="deleteID">Apagar ideia</button>
+                    </div>
+                    <input type="text" name="deleteID" class="form-control" id="deleteID" placeholder="procurar" aria-describedby="inputGroupPrepend" required>
+                </div>
+            </div>
+        </form>
+        <br><form action="/logout" method="post">
+            <div class="col-md-4 mb-3">
+                <div class="submit-group">
+                <form action="/newuser" method="post">
+                    <button class="btn btn-secondary" value="logout" type="submit" id="/logout">Logout</button>
+                </form>
+                </div>  
+            </div>
+        </form>
+        {% endblock %}

@@ -1,0 +1,101 @@
+body {
+    background-color: slategray;
+    text-align: center;
+}
+table {
+    text-align: center;
+    margin: auto;
+    font-size:  1.3em;
+
+}
+.titulo {
+    background-color: white;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    font: Arial;
+    text-align: center;
+    font-size:  1.3em;
+    margin: auto;
+    border: none;
+}
+p {
+    color: white;
+    font: Arial;
+    size: 0.2em;
+    margin: 20px;
+}
+h1 {
+    color: black;
+    font-family: verdana;
+    font-size: 100%; 
+    margin: auto;
+  }
+img{
+    margin: auto;
+    width: auto;
+}
+input {
+    width: 300px;
+    height: 50px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    font: Arial;
+    text-align: center;
+    font-size:  1.3em;
+    cursor: pointer
+}
+form {
+    margin: auto;
+}
+#greet {
+    background-color: palevioletred;
+    cursor: pointer;
+}
+#palrelated {
+    background-color:slategray;
+    width: auto;
+    height: auto;
+    margin: auto;
+    border: none;
+    border-radius: none;
+    font: Arial;
+    color: white;
+    text-align: center;
+    font-size:  1.3em;
+    cursor: pointer
+}
+#ideiaalterar {
+    background-color:white;
+    width: auto;
+    height: auto;
+    size: auto;
+    margin: 0.5;
+    font: Arial;
+    color: black;
+    text-align: center;
+    font-size:  1.3em;
+    cursor: pointer
+}
+
+
+.user{
+background-image: url("user.svg");
+background-size: 10% 40%;
+background-position: left;
+background-repeat: no-repeat;
+    }
+.pass{
+background-image: url("pass.svg");
+background-size: 10% 40%;
+background-position: left;
+background-repeat: no-repeat;
+
+}
+.email{
+background-image: url("email.svg");
+background-size: 10% 40%;
+background-position: left;
+background-repeat: no-repeat;
+    }

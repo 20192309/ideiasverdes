@@ -1,0 +1,58 @@
+{% extends "base.html" %} 
+{% block title %}ideiasverdes.pt{% endblock %}
+        {% block content %}
+        <div class="container align-items-center">
+          <h1>ideias verdes:Criar ideia</h1>
+            <p >novo ID: {{ newid }}</p>
+            <div class="form-group">
+              <form action="criarideia" id="criarideia" method="post" enctype=multipart/form-data>
+                <br><input class="form-control" hidden type="text" value = "{{ newid }}" placeholder="id" name="id" id="criarideia">
+                <br><input class="form-control" type="text" value = "" placeholder="Nome" name="nome" id="criarideia">
+                <div class="row">
+                  <div class="col">
+                    <br><input class="form-control" type="text" value = "" placeholder="Impacto individual" name="Impacto individual" id="criarideia">
+                  </div>
+                  <div class="col">
+                    <br><input class="form-control" type="text" value = "" placeholder="Impacto coletivo" name="Impacto coletivo" id="criarideia">
+                  </div>
+                  <div class="col">
+                    <br><input class="form-control" type="text" value = "" placeholder="Esforco" name="Esforco" id="criarideia">
+                  </div>
+                </div>
+                <br><input class="form-control" type="text" value = "" placeholder="Facto Cientifico" name="Facto Cientifico" id="criarideia">
+                <br><input class="form-control" type="text" value = "" placeholder="Descricao" name="Descricao" id="criarideia">
+                <br><input class="form-control" type="text" value = "" placeholder="Curiosidade" name="Curiosidade" id="criarideia">
+                <br><input class="form-control" type="text" value ="" placeholder="Mais locais de informação" name="moreinfo" id="criarideia">
+                <br><input class="form-control" type="text" value = "" placeholder="Videos" name="Videos" id="criarideia">
+                <br><input class="form-control" type="text" value = "" placeholder="Estudos" name="Estudos" id="criarideia">
+            </div>
+            <div class="list-group-item justify-content-between align-items-center" id="palavras">
+              <div class="input-group">  
+                <br>Gerir palavras:<input type="text"class="form-control" placeholder="Nova palavra" name="palavrainserir" id="novaspalavras">
+                <button type="button" class="btn btn-secondary" name="btnadd" id="novaspalavras" onclick="adicionar()">Add</button><br>
+              </div>
+            </div>
+            <div class="list-group-item justify-content-between align-items-center" id="lojas">
+              <div class="input-group">
+                <br>Loja:<input type="text" class="form-control" placeholder="Nova loja" name="lojainserir" id="novaslojas">
+                url:<input type="text" class="form-control"placeholder="url" name="loja urlinserir" id="novaslojasulr">
+                <button type="button" class="btn btn-secondary" name="btnadd" id="novaslojas" onclick="adicionarloja()">Add</button><br> 
+              </div>
+            </div>
+            <div class="form-group">
+                <br>Editor:<input type="text" class="form-control" value = "" placeholder="Editor" name="Editor" id="criarideia">
+            </div>
+        <div class="inseir imagem">
+                <input type=file name=file>
+                <input type=submit value=Upload>
+            <!--
+            <label>Choose Images: </label>
+            <input type="file" name="files" id="fileInput" class="form-control" multiple >
+            -->
+        </div>
+        <div class="form-group">
+         <br><input type="submit" class="btn btn-success" value="Submeter nova ideia" id="criarideia">
+        </div>
+      </div>
+
+        {% endblock %}

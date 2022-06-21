@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Home Page ideiasverdes.pt{% endblock %}
+        {% block content %}
+        <div class="row height d-flex justify-content-center align-items-center">
+            {{alerta}}
+        </div>
+        <div class="row height d-flex justify-content-center align-items-center">
+        <img src="static/ideiasverdeshome.png" alt="globe" style="width: 40%;
+        height: 40%;">
+        </div> <br>
+        <div class="container">
+            <div class="row height d-flex justify-content-center align-items-center">
+              <div class="col-md-8">
+                <div class="search">
+                    <form action="search" method="post">
+                        <div class="input-group">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" name="search" id="search" placeholder="procurar por palavras">
+                        <button type="submit" value="pesquisa" id="search" class="btn btn-success">Search</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="input-group">
+                    {% for i in palavras %}
+                        <form action="search" method="post">
+                            <input hidden type="text" value="{{ i }}" name="search" id="search">
+                            <button type="submit" value="{{ i }}" id="palrelated" class="btn btn-link">{{ i }}</button>
+                        </form>
+                    {% endfor %}
+                </div>
+              </div>
+            </div>
+        </div>
+        {% endblock %}

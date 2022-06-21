@@ -1,0 +1,75 @@
+{% extends "base.html" %} 
+{% block title %}ideiasverdes.pt{% endblock %}
+        {% block content %}
+    
+{% for ideia in ideiaalterar %}
+<div class="container align-items-center">
+    <h1>ideias verdes: alterar ideia</h1>
+    <form action="ideiaalterar" id="ideiaalterar" method="post" enctype=multipart/form-data>
+        <div class="main_image">
+            <img src="{{url_for('static', filename= ideia.imagem)}}" class="rounded mx-auto d-block" alt="..." width="20%" height="20%">
+        </div>
+        Alterar Imagem:<input type=file name=file>
+        <div class="form-group">
+        <p>ID: {{ ideia.id }}</p>
+        <input hidden type="text" value = "{{ ideia.id }}" placeholder="id" name="id" id="ideiaalterar">
+        Nome:<input type="text"class="form-control" value = "{{ ideia.nome_ideia }}" placeholder="Nome" name="nome" id="ideiaalterar">
+        <div class="row">
+            <div class="col">
+                <br>Inpacto individual:<input type="text" class="form-control"value = "{{ ideia.impacto_ind }}" placeholder="Impacto individual" name="Impacto individual" id="ideiaalterar">
+            </div>
+            <div class="col">
+                <br>Inpacto coletivo:<input type="text"class="form-control" value = "{{ ideia.impacto_col }}" placeholder="Impacto coletivo" name="Impacto coletivo" id="ideiaalterar">
+            </div>
+            <div class="col">
+                <br>Esforço:<input type="text"class="form-control" value = "{{ ideia.esforco }}" placeholder="Esforco" name="Esforco" id="ideiaalterar">
+            </div>
+        </div>
+        <br>Facto Cientifico:<input type="text"class="form-control" value = "{{ ideia.fact_cient }}" placeholder="Facto Cientifico" name="Facto Cientifico" id="ideiaalterar">
+        <br>Descrição:<input type="text"class="form-control" value = "{{ ideia.descricao }}" placeholder="Descricao" name="Descricao" id="ideiaalterar">
+        <br>Curiosidade:<input type="text"class="form-control" value = "{{ ideia.curiosidade }}" placeholder="Curiosidade" name="Curiosidade" id="ideiaalterar">
+        <br>Mais info:<input type="text"class="form-control" value ="{{ ideia.mais_info }}" placeholder="Mais locais de informação" name="moreinfo" id="ideiaalterar">
+        <br>Videos:<input type="text"class="form-control" value = "{{ ideia.videos }}" placeholder="Videos" name="Videos" id="ideiaalterar">
+        <br>Estudos:<input type="text"class="form-control" value = "{{ ideia.estudos }}" placeholder="Estudos" name="Estudos" id="ideiaalterar">
+        </div>
+        <div class="list-group-item justify-content-between align-items-center" id="palavras">
+            <div class="input-group">
+            <br>Gerir palavras:<input type="text"class="form-control" placeholder="Nova palavra" name="newpalavra" id="novaspalavras">
+            <button type="button" class="btn btn-secondary" name="btnadd" id="novaspalavras" onclick="adicionar()">Add</button>
+            </div><br>
+            {% for p in ideia.palavras %}
+                <div class="word">
+                    <label for="{{ p }}" id="{{ p }}">{{ p }}</label>
+                    <input hidden type="text" name="palavra" value="{{ p }}" id="{{ p }}">
+                    <button type="button"class="btn btn-danger" name="btnremove" id="{{ p }}" value="{{ p }}" onclick="remover('{{ p }}')">Remover</button>
+                </div>                            
+            {% endfor %}
+        </div><br>
+        <div class="list-group-item justify-content-between align-items-center" id="lojas">
+            <div class="input-group">
+            <br>Loja:<input type="text" class="form-control" placeholder="Nova loja" name="newloja" id="novaslojas">
+            url:<input type="text"class="form-control" placeholder="url" name="newlojaurl" id="novaslojasulr">
+            <button type="button" class="btn btn-secondary"  name="btnadd" id="novaslojas" onclick="adicionarloja()">Add</button><br> 
+            </div>
+            {% for k in ideia.lojas %}
+                {% for i in k %}    
+                    <div class="loja" id="{{ i[1] }}">
+                    <label for="{{ i[1] }}" id="{{ i[1] }}">"{{ i[1] }}"</label>
+                    <label for="{{ i[2] }}" id="{{ i[2] }}" id2="{{ i[1] }}">"{{ i[2] }}"</label>
+                    <input hidden type="text" value = "{{ i[1] }}" placeholder="loja" name="loja" id="{{ i[1] }}">
+                    <input hidden type="text" value = "{{ i[2] }}" placeholder="loja url" name="loja url" id="{{ i[2] }}" id2="{{ i[1] }}">
+                    <button type="button" class="btn btn-danger name="btnremoveloja" id="{{ i[1] }}" id2="{{ i[2] }}" value="{{ i[1] }}" onclick="removerloja(['{{ i[1] }}','{{ i[2] }}'])">Remover</button>
+                </div>  
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <br>Editor:<input type="text"class="form-control" value = "{{ ideia.editor }}" placeholder="Editor" name="Editor" id="ideiaalterar">
+            <p>Data de criação: {{ ideia.data_cria }}</p>
+            <p>Revisto em: {{ ideia.data_revi }}</p>
+            <input type="submit" value="Submeter alteração" id="ideiaalterar">
+        </div>  
+    </form>
+</div>
+        {% endfor %}
+        {% endblock %}

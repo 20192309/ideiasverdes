@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Home Page ideiasverdes.pt{% endblock %}
+        {% block content %}
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script>
+        <div class="grid" data-masonry='{"percentPosition": true, "itemSelector": ".grid-item" }'>
+          {% for ideia in listagrelha %}
+              <div class="grid-item" style="width: 300px; padding:5px">
+                <form action="consultideia" method="post">
+                <div class="card">
+                  <div class="d-flex justify-content-center">
+                  <img src="{{url_for('static', filename= ideia.imagem)}}" class="rounded mx-auto d-block" alt="..." width="70%" height="70%">
+                </div>
+                  <div class="card-body">
+                    Ideia {{ ideia.id }} : {{ ideia.nome }}
+                  <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-outline-success" value="Saber Mais" id="consultideia">
+                  </div>
+                  </div>
+                  <input hidden type="text" placeholder="procurar" value="{{ ideia.id }}" name="consultideia" id="consultideia">
+                </div>
+                </form>
+                </div>
+              {% endfor %}
+        </div>  
+          <script>
+            window.onload = () => { 
+          const grid = document.querySelector('.grid');
+          const masonry = new Masonry(grid, {
+              itemSelector: '.grid-item',});
+                          // jQuery
+              $grid.masonry('reloadItems')
+              // vanilla JS
+              msnry.reloadItems()
+            };
+          </script>
+              
+
+
+          <!--
+
+          <div class="container">
+            <div class="grid" data-masonry='{"percentPosition": true, "itemSelector": ".grid-item", "columnWidth": 200 }'>
+              {% for ideia in listagrelha %}
+              <div class="g rid-item" style="width: 200px; padding:5px">
+                <form action="consultideia" method="post">
+                <div class="card">
+                  <div class="d-flex justify-content-center">
+                  <img src="{{url_for('static', filename= ideia.imagem)}}" class="rounded mx-auto d-block" alt="..." width="70%" height="70%">
+                </div>
+                  <div class="card-body">
+                    Ideia {{ ideia.id }} : {{ ideia.nome }}
+                  <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-outline-success" value="Saber Mais" id="consultideia">
+                  </div>
+                  </div>
+                  <input hidden type="text" placeholder="procurar" value="{{ ideia.id }}" name="consultideia" id="consultideia">
+                </div>
+                </form>
+                </div>
+              {% endfor %}
+              <script type="text/javascript" src="{{ url_for('static', filename='js/masonry.pkgd.min.js')}}"></script>
+          </div>
+        </div>
+        -->
+        {% endblock %}

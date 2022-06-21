@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+{% block title %}ideiasverdes.pt{% endblock %}
+        {% block content %}
+      
+        <h1>Bem-vindo ao Login de Administração!</h1>
+        <form action="/e3832202457785641918a1d8ed826b8b" method="post">
+            <div class="col-md-4 mb-3" >
+                <label for="validationCustomUsername">Por favor, forneça suas credenciais:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">User</span>
+                  </div>
+                  <input type="text" name="username" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">Pass</span>
+                </div>
+                <input type="password" name="password" class="form-control" id="validationCustomUsername" placeholder="Password" aria-describedby="inputGroupPrepend" required>
+              </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="submit-group">
+              <button class="btn btn-success" value="Enviar" type="submit">Submit</button>
+            </div>
+         </div>
+        </div>
+        </form>
+        <div class="col-md-4 mb-3">
+          <div class="submit-group">
+            <form action="/newuser" method="post">
+              <button class="btn btn-success" value="Novo Login" type="submit">Novo Login</button>
+            </form>
+            </div>  
+        </div>
+        {% endblock %}
