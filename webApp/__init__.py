@@ -309,9 +309,9 @@ def conceitos():
 
 @app.route("/loginadmin", methods=['GET', 'POST'])
 def backbutton():
-    return redirect(('e3832202457785641918a1d8ed826b8b'))
+    return redirect(('urldopaineldeadministracao'))
 
-@app.route("/e3832202457785641918a1d8ed826b8b", methods=['GET', 'POST'])
+@app.route("/urldopaineldeadministracao", methods=['GET', 'POST'])
 def login():
     if 'username' in session:
         print("in session")
