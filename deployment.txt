@@ -1,0 +1,41 @@
+sudo apt update
+sudo apt install apache2
+apache2 -version
+sudo ufw app list
+sudo ufw allow 'Apache'
+sudo systemctl status apache2  
+sudo apt-get install libapache2-mod-wsgi-py3
+sudo apt-get install python3.10-dev
+sudo apt-get install python3-pip
+sudo pip install flask
+sudo pip install flask_sqlalchemy
+
+carregar pelo winSCP ver imagem do ftp.png
+criar o ficheiro webApp.conf em var/www/webApp/webApp ver img - apacheconf.png
+
+sudo a2ensite webApp
+systemctl reload apache2
+
+sudo nano webapp.wsgi 
+
+
+tive problemas com os path das bd e dos csv e das img diretamente no codigo python
+
+-----------\\---Conf do apache---\\-----------
+<VirtualHost *:80> 
+ServerName mywebsite.com 
+ServerAdmin admin@mywebsite.com 
+WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi 
+<Directory /var/www/FlaskApp/FlaskApp/> 
+Order allow,deny 
+Allow from all 
+</Directory> 
+Alias /static /var/www/FlaskApp/FlaskApp/static 
+<Directory /var/www/FlaskApp/FlaskApp/static/> 
+Order allow,deny 
+Allow from all 
+</Directory>
+ErrorLog ${APACHE_LOG_DIR}/error.log 
+LogLevel warn 
+CustomLog ${APACHE_LOG_DIR}/access.log combined 
+</VirtualHost>«
